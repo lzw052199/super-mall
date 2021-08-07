@@ -1,15 +1,32 @@
 module.exports = {
-  configureWebpack:{
-    resolve:{
-      extensions:[],//忽略后缀
-      alias:{//路径别名配置
-        '@' : 'src',
+  configureWebpack: {
+    resolve: {
+      alias: {
+        'components': '@/components',
+        'content': 'components/content',
+        'common': 'components/common',
         'assets': '@/assets',
-        'common':'@/common',
-        'components':'@/components',
-        'network':'@/network',
-        'views':'@/views',
+        'network': '@/network',
+        'views': '@/views',
       }
     }
   }
 }
+
+// const path = require('path');//引入path模块
+// function resolve(dir){
+//     return path.join(__dirname,dir)//path.join(__dirname)设置绝对路径
+// }
+
+// module.exports = {
+//     chainWebpack: config => {
+//         config.resolve.alias
+//             .set('@',resolve('src'))
+//             .set('components',resolve('src/components'))
+//             .set('assets',resolve('src/assets'))
+//             .set('network',resolve('src/network'))
+//             .set('views',resolve('src/views'))
+
+//             //set第一个参数：设置的别名，第二个参数：设置的路径
+//     }
+// }
