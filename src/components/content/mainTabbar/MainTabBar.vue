@@ -52,8 +52,12 @@
 </template>
 
 <script>
-  import TabBar from 'components/common/tabbar/TabBar.vue'//wewbpack.base.config中resolve设置路径别名
-  import TabBarItem from 'components/common/tabbar/TabBarItem.vue'
+  // import TabBar from 'components/common/tabbar/TabBar.vue'//wewbpack.base.config中resolve设置路径别名
+  // import TabBarItem from 'components/common/tabbar/TabBarItem.vue'
+  import {TabBar,TabBarItem} from 'components/common/tabbar' //自动匹配index.js文件
+ 
+
+
 export default {
   name:"MainTabBar",
   components:{

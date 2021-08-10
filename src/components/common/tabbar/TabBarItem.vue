@@ -57,11 +57,12 @@ export default {
     /* tabbar标准高度 */
     height: 49px;
     font-size: 14px;
+    color: gray;
   }
  .tab-bar-item img{
    width: 24px;
    height: 24px;
-   margin: 3px 0 2px 0;
+   margin: 4px 0 2px 0;
    vertical-align: middle;
  }
  
