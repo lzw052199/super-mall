@@ -2,12 +2,12 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
+        'common' : '@/common',
         'components': '@/components',
-        'content': 'components/content',
-        'common': 'components/common',
         'assets': '@/assets',
         'network': '@/network',
         'views': '@/views',
+
       }
     }
   }
@@ -26,6 +26,7 @@ module.exports = {
 //             .set('assets',resolve('src/assets'))
 //             .set('network',resolve('src/network'))
 //             .set('views',resolve('src/views'))
+//             .set('common',resolve('src/common'))
 
 //             //set第一个参数：设置的别名，第二个参数：设置的路径
 //     }

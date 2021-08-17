@@ -43,7 +43,7 @@ export default {
   },
   methods:{
     itemClick(){
-      console.log("itemClick");
+      // console.log("itemClick");
       this.$router.replace(this.path).catch(err => {})//处理点击异常err
     }
   }
