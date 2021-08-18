@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .detail-navbar-center{
     display: flex;
     text-align: center;

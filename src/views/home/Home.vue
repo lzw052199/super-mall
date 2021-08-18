@@ -5,7 +5,7 @@
             <h3>购物街</h3>
       </template>
     </nav-bar>
-     <tab-control :titles="['流行', '新款', '精选']" 
+    <tab-control :titles="['流行', '新款', '精选']" 
                       ref="tabControl1" 
                       @tabClick="tabClick" 
                       class="fade-tab-control" v-show="isTabFixed"/>        

@@ -4,7 +4,7 @@
       <!-- exclude需要在组件处配置name -->
       <router-view></router-view>
     </keep-alive>
-    <main-tab-bar class="tabbar"/>
+    <main-tab-bar class="tabbar" v-if="this.$route.meta.show"/>
   </div>
 </template>
 

@@ -16,27 +16,47 @@ Vue.use(VueRouter)
 const routes = [
   {
     path:'',
-    redirect:'/home'
+    redirect:'/home',
   },
   {
     path:'/home',
-    component:Home
+    component:Home,
+    meta:{
+      title:Home,
+      show:true//定义在不同路由tabbar的显示与隐藏
+    }
   },
   {
     path:'/category',
-    component:Category
+    component:Category,
+    meta:{
+      title:Category,
+      show:true//定义在不同路由tabbar的显示与隐藏
+    }
   },
   {
     path:'/shopcart',
-    component:Shopcart
+    component:Shopcart,
+    meta:{
+      title:Shopcart,
+      show:true//定义在不同路由tabbar的显示与隐藏
+    }
   },
   {
     path:'/profile',
-    component:Profile
+    component:Profile,
+    meta:{
+      title:Profile,
+      show:true//定义在不同路由tabbar的显示与隐藏
+    }
   },
   {
     path:'/detail/:iid',
-    component:Detail
+    component:Detail,
+    meta:{
+      title:'detail',
+      show:false
+    }
   }
 ]
 

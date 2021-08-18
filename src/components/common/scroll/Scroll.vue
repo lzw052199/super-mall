@@ -37,8 +37,8 @@ export default {
       probeType:this.probeType,//对监听进行查询 而不是所有scroll组件都处于监听状态
       click:true,//会否可点击
       taps: true,
-      pullUpLoad:this.pullUpLoad,//上拉加载 是否上拉监听
-      mouseWheel:true,
+      pullUpLoad:this.pullUpLoad,//是否可上拉加载 是否上拉监听 需要对应组件绑定属性
+      // mouseWheel:true,
       observeDOM:true,
       observeImage:true
     })
