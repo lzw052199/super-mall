@@ -1,24 +1,24 @@
 <template>
-  <div ref="wrapper">
+  <div ref="wrapper" class="1x">
     <!-- ref如果绑定在组件上，通过this.$refs.refname拿到的是一个组件对象 -->
     <!-- ref如果绑定在元素上，通过this.$refs.refname拿到的是一个dom对象 -->
-    <div class="content">
+    <!-- <div class="content"> -->
       <slot></slot>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
-// import BScroll from 'better-scroll'
-import BScroll from '@better-scroll/core'
-import Pullup from '@better-scroll/pull-up'
-BScroll.use(Pullup)
+import BScroll from 'better-scroll'
+// import BScroll from '@better-scroll/core'
+// import Pullup from '@better-scroll/pull-up'
+// BScroll.use(Pullup)
 
 export default {
   name:'Scroll',
   data(){
     return {
-      scroll:null
+      scroll:{}
     }
   },
   props:{
@@ -36,11 +36,11 @@ export default {
     this.scroll = new BScroll(this.$refs.wrapper, {
       probeType:this.probeType,//对监听进行查询 而不是所有scroll组件都处于监听状态
       click:true,//会否可点击
-      taps: true,
+      
       pullUpLoad:this.pullUpLoad,//是否可上拉加载 是否上拉监听 需要对应组件绑定属性
       // mouseWheel:true,
-      observeDOM:true,
-      observeImage:true
+      // observeDOM:true,
+      // observeIsmage:true
     })
 
     //监听滚动位置
@@ -54,7 +54,7 @@ export default {
     //监听上拉事件
    if(this.pullUpLoad){
       this.scroll.on('pullingUp', () => {
-      console.log("上拉加载");
+      // console.log("上拉加载");
       this.$emit("pullingUp")//将上拉请求传出
 
       setTimeout(() => {//请求一次上拉后关闭上拉 以此多次请求上拉事件
@@ -71,11 +71,15 @@ export default {
       this.scroll.finishPullUp()
     },
     refresh(){
-      console.log('防抖');
+      // console.log('防抖');
       this.scroll && this.scroll.refresh()
     },
     finishPullUp(){
       this.scroll && this.scroll.finishPullUp()
+    },
+    getScrollY(){
+      console.log(this.scroll.y);
+      return this.scroll ? this.scroll.y : 0
     }
   }
 }

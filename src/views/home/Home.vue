@@ -14,7 +14,7 @@
                             :probe-type="3" 
                             @scroll="contentScroll" 
                             :pull-up-load='true' @pullingUp='loadMore'>
-
+      <div>
         <home-swiper :banner="banner" @swiperImageLoad='swiperImageLoad'/>
 
         <recommend-view :recommend='recommend'></recommend-view>
@@ -26,8 +26,7 @@
                       @tabClick="tabClick"></tab-control>
 
         <goods-list :goods="showGoods"></goods-list>
-
-        
+      </div>
     </scroll>
     <back-top @click.native="backClick" v-show="isShowBackTop" />
     <!-- 监听当前组件需要使用.native修饰符 -->
@@ -79,7 +78,8 @@
         curryType:'pop',
         isShowBackTop:false,
         TabControlOffSetTop:0,
-        isTabFixed:false
+        isTabFixed:false,
+        saveY:0//获取滚动位置
       }
     },
     computed:{
@@ -102,10 +102,10 @@
       },
     mounted(){
       //监听item中图片是否加载完成
-      const refresh = debounce(this.$refs.scroll && this.$refs.scroll.refresh, 20)
-      this.$bus.$on('itemImageLoad', () => {
+      const refresh = debounce(this.$refs.scroll && this.$refs.scroll.refresh, 100)
+      this.$bus.$on('homeItemImageLoad', () => {
         // console.log(this.$bus);
-       refresh()//监听图片的加载，每加载一张都重新刷新可滚动高度
+       refresh()//监听图片的加载，每加载一张都重新刷新可滚动s高度
         // console.log('----');
       })
 
@@ -180,6 +180,13 @@
         })
       }
 
+    },
+    activated(){
+      this.$refs.scroll.scrollTo(0,this.saveY,0)
+      this.$refs.scroll.refresh()
+    },
+    deactivated(){
+      this.saveY = this.$refs.scroll.getScrollY()
     }
   }
 </script>

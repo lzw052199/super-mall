@@ -1,10 +1,10 @@
 <template>
   <div class="goods-item" @click="itemClick">
-      <img :src="goodsItem.show.img" alt="" @load="imageLoad">
+      <img :src="showImage" alt="" @load="imageLoad">
     <!-- @load=''fun' vue监听图片加载  原生监听 img.onload = FUN -->
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
-      <span class="price">{{goodsItem.price}}</span>
+      <span class="price">￥{{goodsItem.price}}</span>
       <span class="collect">{{goodsItem.cfav}}</span>
     </div>
   </div>
@@ -20,9 +20,19 @@ props:{
     }
   }
 },
+computed:{
+  showImage(){
+    return this.goodsItem.image || this.goodsItem.show.img
+  }
+},
 methods:{
   imageLoad(){
-    this.$bus.$emit('itemImageLoad')//事件总线发射一个事件
+    // this.$bus.$emit('itemImageLoad')//事件总线发射一个事件
+    if(this.$route.path.indexOf('/home') !== -1){
+      this.$bus.$emit('homeItemImageLoad')//事件总线发射一个事件
+    }else if(this.$route.path.indexOf('/detail') !== -1){
+      this.$bus.$emit('detailItemImageLoad')//事件总线发射一个事件
+    }
   },
   itemClick(){
     console.log('跳转详情页');

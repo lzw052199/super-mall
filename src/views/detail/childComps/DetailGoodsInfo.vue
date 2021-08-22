@@ -1,8 +1,8 @@
 <template>
-  <div v-if="Object.keys(detailInfo).length !== 0" class="goods-info">
+  <div  v-if="Object.keys(detailInfo).length !== 0" class="goods-info">
     <div class="info-desc clear-fix">
       <div class="start">
-      </div>
+</div>
       <div class="desc">{{detailInfo.desc}}</div>
       <div class="end"></div>
     </div>
@@ -24,7 +24,8 @@
     data(){
       return {
         counter:0,
-        imagesLength:0
+        imagesLength:0,
+        timer:false
       }
     },
     methods:{
@@ -37,15 +38,17 @@
     watch:{//监听某一个属性的变化
       detailInfo(){//将加载的图片数量赋值
         this.imagesLength = this.detailInfo.detailImage[0].list.length
+        // console.log(0);
       }
-    }
-	}
+    },
+  }
 </script>
 
 <style scoped>
   .goods-info {
     padding: 20px 0;
     border-bottom: 5px solid #f2f5f8;
+
   }
 
   .info-desc {

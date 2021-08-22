@@ -9,6 +9,12 @@ export function getDetail(iid) {
   })
 }
 
+export function getRecommend() {
+  return request({
+    url:'/recommend'
+  })
+}
+
 export class Goods { //定义一个类用于接受对应数据
   constructor(itemInfo, columns, services) {
     this.title = itemInfo.title;
